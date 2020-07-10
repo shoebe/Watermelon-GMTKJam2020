@@ -41,6 +41,29 @@ texture={
 "svg/scale": 1.0
 }
 
+[input]
+
+ui_select={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
+}
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

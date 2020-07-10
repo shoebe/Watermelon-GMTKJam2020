@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile-dudplaceholder2.png-f84d55316120f6ecace8212883ca3192.stex"
+path="res://.import/gmtkplayer1.png-a3759f78d800096d8b202657085c48b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/tilemaps/tile-dudplaceholder2.png"
-dest_files=[ "res://.import/tile-dudplaceholder2.png-f84d55316120f6ecace8212883ca3192.stex" ]
+source_file="res://Art/entities/gmtkplayer1.png"
+dest_files=[ "res://.import/gmtkplayer1.png-a3759f78d800096d8b202657085c48b3.stex" ]
 
 [params]
 
