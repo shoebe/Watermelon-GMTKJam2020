@@ -33,10 +33,17 @@ func _input(event):
 		
 		
 func start_moving(direction:Vector2):
+	var count = decrement_counter()
+	direction = possible_forced_direction(count, direction)
 	old_pos = position
 	lerp_destination = position + direction*self.TILE_WIDTH
 	moving = true
 	current_lerp_val = 0
+	
+func possible_forced_direction(moves_left, direction):
+	if moves_left in get_parent().forced_moves.keys():
+		return get_parent().forced_moves[moves_left]
+	return direction
 	
 func decrement_counter():
 	get_parent().moves_left_counter -= 1
@@ -55,7 +62,6 @@ func move():
 func reversal_move():
 	#maybe enhance
 	position = old_pos
-
 	
 func collision_detection():
 	for body in get_overlapping_bodies():
