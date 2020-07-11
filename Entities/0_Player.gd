@@ -3,6 +3,7 @@ extends "res://Entities/abstracts/Moveable.gd"
 var next_movement = null
 var reached_goal = false
 
+var non_input_move = false
 var move_count
 var move_limit
 var forced_moves
@@ -40,7 +41,10 @@ func start_moving(dir:Vector2):
 	if move_count >= move_limit:
 		# add a thing to the UI which makes you restart
 		return
-	decrement_counter()
+	if non_input_move:
+		non_input_move = false
+	else:
+		decrement_counter()
 	self.direction = possible_forced_direction(move_count, dir)
 	.start_moving(self.direction)
 	
@@ -89,3 +93,4 @@ func _on_area_entered(area):
 			area.start_moving(self.direction)
 		16: # arrows
 			next_movement = area.get_direction()
+			non_input_move = true
