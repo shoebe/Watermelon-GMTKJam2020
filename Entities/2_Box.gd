@@ -10,8 +10,8 @@ func collision_detection():
 			4: # water
 				collision_layer = 32
 				var tile_pos = body.world_to_map(lerp_destination)
-				var tile_id = body.get_cellv(tile_pos)
-				body.tile_set.remove_tile(tile_id)
+				# maybe clear to another water tile
+				body.set_cellv(tile_pos, -1)
 				
 func _physics_process(delta):
 	if moving:
