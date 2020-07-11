@@ -73,6 +73,11 @@ ui_end={
 "events": [  ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Wall"
+2d_physics/layer_7="Goal"
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
