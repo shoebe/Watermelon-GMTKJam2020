@@ -11,6 +11,14 @@ var lerp_destination = Vector2.ZERO
 
 var reached_goal = false
 
+var move_count
+var forced_moves
+
+func _ready():
+	var data = get_node("/root/LevelData").get_level_data()
+	move_count = data["total_moves"]
+	forced_moves = data["forced_moves"]
+
 func _input(event):
 	if !moving:
 		if event.is_action_pressed("ui_right"):
@@ -33,21 +41,24 @@ func _input(event):
 		
 		
 func start_moving(direction:Vector2):
-	var count = decrement_counter()
-	direction = possible_forced_direction(count, direction)
+	if move_count <= 0 :
+		# add a thing to the UI which makes you restart
+		return
+	decrement_counter()
+	direction = possible_forced_direction(move_count, direction)
 	old_pos = position
 	lerp_destination = position + direction*self.TILE_WIDTH
 	moving = true
 	current_lerp_val = 0
 	
 func possible_forced_direction(moves_left, direction):
-	if moves_left in get_parent().forced_moves.keys():
-		return get_parent().forced_moves[moves_left]
+	if moves_left in forced_moves.keys():
+		return forced_moves[moves_left]
 	return direction
 	
 func decrement_counter():
-	get_parent().moves_left_counter -= 1
-	return get_parent().moves_left_counter
+	get_node("/root/UI").decrement_counter()
+	move_count -= 1
 
 func move():
 	current_lerp_val = clamp(current_lerp_val+1/AMOUNT_OF_FRAMES_PER_MOVEMENT, 0, 1)

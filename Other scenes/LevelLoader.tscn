@@ -3,7 +3,7 @@
 [ext_resource path="res://Other scenes/LevelLoader.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/nevt-level-font.tres" type="DynamicFont" id=2]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 resource_name = "fade to clear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasModulate:color")
@@ -32,36 +32,25 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="LevelLoader" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 85.0
-margin_top = -17.0
-margin_right = 85.0
-margin_bottom = -17.0
+[node name="LevelLoader" type="CanvasLayer"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Layer" type="CanvasLayer" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Layer"]
-"anims/fade to clear" = SubResource( 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/fade to clear" = SubResource( 3 )
 "anims/fade to white" = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Layer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CanvasModulate" type="CanvasModulate" parent="Layer"]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2( 2, 0 )
 color = Color( 1, 1, 1, 0 )
 
-[node name="Label" type="Label" parent="Layer"]
+[node name="Label" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
