@@ -14,4 +14,10 @@ var levelData = [
 ]
 
 func get_level_data():
-	return levelData[current_level - 1]
+	if current_level <= levelData.size():
+		return levelData[current_level - 1]
+	else:
+		return {
+		"forced_moves": {},
+		"total_moves": 99
+	}
