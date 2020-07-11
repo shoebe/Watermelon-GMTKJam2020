@@ -58,7 +58,7 @@ func decrement_counter():
 	get_node("/root/UI").decrement_counter()
 	move_count += 1
 	if move_count >= move_limit:
-		add_child(load("res://Other scenes/PressR.tscn").instance())
+		press_r()
 	
 func _physics_process(delta):
 	if moving:
@@ -69,7 +69,10 @@ func _physics_process(delta):
 			
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "death":
-		get_node("/root/LevelLoader").restart_level()
+		press_r()
+
+func press_r():
+	add_child(load("res://Other scenes/PressR.tscn").instance())
 
 func _on_body_entered(body):
 	match body.collision_layer:
@@ -91,6 +94,7 @@ func _on_area_entered(area):
 		2: # "wall" (box became layer 2 probs)
 			reversal_move()
 			moving = false
+			print("yes")
 			return true
 		8: #box
 			area.start_moving(self.direction)

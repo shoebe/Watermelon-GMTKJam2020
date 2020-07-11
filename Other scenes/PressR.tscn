@@ -46,6 +46,7 @@ __meta__ = {
 
 [node name="CanvasModulate" type="CanvasModulate" parent="fader"]
 position = Vector2( 2, 0 )
+color = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fader"]
 "anims/become visible" = SubResource( 2 )
