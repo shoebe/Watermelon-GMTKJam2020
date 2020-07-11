@@ -3,6 +3,7 @@ extends "res://Entities/abstracts/Moveable.gd"
 var next_movement = null
 var reached_goal = false
 
+
 var non_input_move = false
 var move_count
 var move_limit
@@ -59,7 +60,7 @@ func decrement_counter():
 	move_count += 1
 	if move_count >= move_limit:
 		press_r()
-	
+
 func _physics_process(delta):
 	if moving:
 		moving = move()
@@ -74,7 +75,6 @@ func _on_body_entered(body):
 	match body.collision_layer:
 		2: # wall
 			reversal_move()
-			moving = false
 			return true
 		4: # water
 			$AnimatedSprite.play("death")
@@ -88,11 +88,6 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	match area.collision_layer:
-		2: # "wall" (box became layer 2 probs)
-			reversal_move()
-			moving = false
-			print("yes")
-			return true
 		8: #box
 			area.start_moving(self.direction)
 		16: # arrows

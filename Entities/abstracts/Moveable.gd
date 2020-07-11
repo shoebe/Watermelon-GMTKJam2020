@@ -27,6 +27,7 @@ func move():
 func reversal_move():
 	#maybe enhance
 	position = old_pos
+	moving = false
 	
 func collision_detection():
 	for body in get_overlapping_bodies():

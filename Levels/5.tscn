@@ -235,7 +235,7 @@ __meta__ = {
 }
 
 [node name="Box" parent="." instance=ExtResource( 3 )]
-position = Vector2( -96, -72 )
+position = Vector2( -96, 0 )
 
 [node name="Arrows" type="Node2D" parent="."]
 
