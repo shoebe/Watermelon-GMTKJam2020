@@ -28,7 +28,7 @@ func create_arrows(forced_moves):
 		
 
 func decrement_counter():
-	$Label.text = String(max_move_count - move_count)
+	$Label.text = "Moves left: %s"%(max_move_count - move_count)
 	var node = $ArrowContainer
 	for child in node.get_children():
 		child.count -= 1
