@@ -31,10 +31,21 @@ func _input(event):
 		
 		
 func start_moving(direction:Vector2):
+	var count = decrement_counter()
+	direction = possible_forced_move(direction, count)
 	old_pos = position
 	lerp_destination = position + direction*self.TILE_WIDTH
 	moving = true
 	current_lerp_val = 0
+
+func decrement_counter():
+	get_parent().moves_left_counter -= 1
+	return get_parent().moves_left_counter
+
+func possible_forced_move(direction:Vector2, move_num):
+	if move_num in get_parent().forced_moves.keys():
+		return get_parent().forced_moves[move_num]
+	return direction
 
 func move():
 	current_lerp_val = clamp(current_lerp_val+1/AMOUNT_OF_FRAMES_PER_MOVEMENT, 0, 1)
