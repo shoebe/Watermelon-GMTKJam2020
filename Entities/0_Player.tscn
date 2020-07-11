@@ -84,7 +84,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Area2D" type="Area2D"]
+[node name="Player" type="Area2D"]
 collision_mask = 511
 script = ExtResource( 2 )
 

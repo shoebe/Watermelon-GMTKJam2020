@@ -1,13 +1,14 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
-var change_layer_in_number_frames = 3 
+var change_layer_in_number_frames = 0 
 
 func collision_detection():
 	for body in get_overlapping_bodies():
 		match body.collision_layer:
 			2: # wall
 				reversal_move()
-				collision_layer = 2
+				get_node("../Player").reversal_move()
+				change_layer_in_number_frames = 10 
 				moving = false
 				return true
 				

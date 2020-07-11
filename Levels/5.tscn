@@ -220,7 +220,7 @@ format = 1
 [node name="Goal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 120, -96 )
 
-[node name="Area2D" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -120, -48 )
 z_index = 1
 
@@ -235,7 +235,7 @@ __meta__ = {
 }
 
 [node name="Box" parent="." instance=ExtResource( 3 )]
-position = Vector2( 72, -48 )
+position = Vector2( -96, -72 )
 
 [node name="Arrows" type="Node2D" parent="."]
 
