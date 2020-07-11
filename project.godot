@@ -88,6 +88,7 @@ restart={
 
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Death"
+2d_physics/layer_4="Box"
 2d_physics/layer_7="Goal"
 
 [rendering]

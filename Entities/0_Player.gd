@@ -1,19 +1,14 @@
-extends Area2D
+extends "res://Entities/abstracts/Moveable.gd"
 
-export var TILE_WIDTH = 24
-export var AMOUNT_OF_FRAMES_PER_MOVEMENT = 8.0
 
-var current_lerp_val = 0
-var moving = false
 var next_movement = null
-var old_pos = null
-var lerp_destination = Vector2.ZERO
 
 var reached_goal = false
 
 var move_count
 var move_limit
 var forced_moves
+var direction
 
 func _ready():
 	var data = get_node("/root/LevelData").get_level_data()
@@ -43,43 +38,25 @@ func _input(event):
 			next_movement = Vector2.DOWN
 		
 		
-func start_moving(direction:Vector2):
+func start_moving(dir:Vector2):
 	if move_count >= move_limit:
 		# add a thing to the UI which makes you restart
 		return
 	decrement_counter()
-	direction = possible_forced_direction(move_count, direction)
-	old_pos = position
-	lerp_destination = position + direction*self.TILE_WIDTH
-	moving = true
-	current_lerp_val = 0
+	self.direction = possible_forced_direction(move_count, dir)
+	.start_moving(self.direction)
 	
-func possible_forced_direction(moves_left, direction):
+func possible_forced_direction(moves_left, dir):
 	if moves_left in forced_moves.keys():
 		return forced_moves[moves_left]
-	return direction
+	return dir
 	
 func decrement_counter():
 	get_node("/root/UI").decrement_counter()
 	move_count += 1
 
-func move():
-	current_lerp_val = clamp(current_lerp_val+1/AMOUNT_OF_FRAMES_PER_MOVEMENT, 0, 1)
-	position = old_pos.cubic_interpolate(lerp_destination, 
-	old_pos.linear_interpolate(lerp_destination, 0.2),
-	old_pos.linear_interpolate(lerp_destination, 0.8),
-	current_lerp_val)
-	if current_lerp_val == 1:
-		return false
-	return true
-	
-func reversal_move():
-	#maybe enhance
-	position = old_pos
-	
 func collision_detection():
 	for body in get_overlapping_bodies():
-		print(body.collision_layer)
 		match body.collision_layer:
 			2: # wall
 				reversal_move()
@@ -93,6 +70,14 @@ func collision_detection():
 					get_node("../Goal/AnimationPlayer").play("eaten")
 					get_node("/root/LevelLoader").finished_level()
 					reached_goal = true
+	for area in get_overlapping_areas():
+		match area.collision_layer:
+			2: # "wall" (box became layer 2 probs)
+				reversal_move()
+				moving = false
+				return true
+			8: #box
+				area.start_moving(self.direction)
 	
 func _physics_process(delta):
 	if moving:
@@ -102,8 +87,6 @@ func _physics_process(delta):
 			start_moving(next_movement)
 			next_movement = null
 			
-
-
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "death":
 		get_node("/root/LevelLoader").restart_level()
