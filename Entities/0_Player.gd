@@ -65,14 +65,15 @@ func reversal_move():
 	
 func collision_detection():
 	for body in get_overlapping_bodies():
-		if body.collision_layer == 2: # wall
-			reversal_move()
-			moving = false
-			return true
-		if body.collision_layer == 7: # goal
-			get_parent().get_node("Goal/AnimationPlayer").play("eaten")
-			emit_signal("reached_goal")
-			
+		print(body.collision_layer)
+		match body.collision_layer:
+			2: # wall
+				reversal_move()
+				moving = false
+				return true
+			64: # goal
+				get_node("../Goal/AnimationPlayer").play("eaten")
+				emit_signal("reached_goal")
 	
 func _physics_process(delta):
 	if moving:
