@@ -206,7 +206,7 @@ __meta__ = {
 tile_set = SubResource( 9 )
 cell_size = Vector2( 24, 24 )
 format = 1
-tile_data = PoolIntArray( 4, 0, 0 )
+tile_data = PoolIntArray( -65533, 0, 0, 4, 0, 0, 65541, 0, 0 )
 
 [node name="Bridge" type="TileMap" parent="."]
 z_index = 1
