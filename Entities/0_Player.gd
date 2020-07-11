@@ -49,15 +49,18 @@ func move():
 func reversal_move():
 	#maybe enhance
 	position = old_pos
+
 	
 func collision_detection():
 	for body in get_overlapping_bodies():
 		if body.collision_layer == 2: # wall
 			reversal_move()
+			moving = false
+			return true
 	
 func _physics_process(delta):
 	if moving:
-		collision_detection()
+		if collision_detection(): return
 		moving = move()
 		if !moving and next_movement != null:
 			start_moving(next_movement)
