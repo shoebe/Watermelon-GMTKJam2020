@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/Poppins-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Other scenes/UI/UI.gd" type="Script" id=2]
 [ext_resource path="res://Other scenes/UI/Arrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Other scenes/UI/ArrowContainer.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
@@ -51,12 +52,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArrowContainer" type="GridContainer" parent="."]
+[node name="ArrowContainer" type="Container" parent="."]
 margin_right = 72.0
 margin_bottom = 78.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 4 )
+cell_size = null
 
 [node name="Arrow" parent="ArrowContainer" instance=ExtResource( 3 )]
 margin_right = 192.0
