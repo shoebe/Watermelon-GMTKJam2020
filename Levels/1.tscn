@@ -71,5 +71,5 @@ position = Vector2( 96, 0 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 108.546, 0.943878 )
 current = true
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 0.6, 0.6 )
 offset_v = -0.24
