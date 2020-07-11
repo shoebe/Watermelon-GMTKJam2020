@@ -261,4 +261,4 @@ rotation = 1.5708
 
 [node name="Arrow9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 0 )
-rotation = -1.5708
+rotation = 4.71239
