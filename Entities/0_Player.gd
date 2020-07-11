@@ -2,9 +2,10 @@ extends Area2D
 
 var TILE_WIDTH = 24
 
-var AMOUNT_OF_FRAMES_PER_MOVEMENT = 3.0
-var current_lerp_val = float(0)
+var AMOUNT_OF_FRAMES_PER_MOVEMENT = 10.0
+var current_lerp_val = 0
 var moving = false
+var next_movement = null
 var lerp_destination = Vector2.ZERO
 
 func _input(event):
@@ -17,12 +18,21 @@ func _input(event):
 			start_moving(Vector2.UP)
 		if event.is_action_pressed("ui_down"):
 			start_moving(Vector2.DOWN)
+	else:
+		if event.is_action_pressed("ui_right"):
+			next_movement = Vector2.RIGHT
+		if event.is_action_pressed("ui_left"):
+			next_movement = Vector2.LEFT
+		if event.is_action_pressed("ui_up"):
+			next_movement = Vector2.UP
+		if event.is_action_pressed("ui_down"):
+			next_movement = Vector2.DOWN
 		
 		
 func start_moving(direction:Vector2):
 	lerp_destination = position + direction*self.TILE_WIDTH
 	moving = true
-	current_lerp_val = float(0)
+	current_lerp_val = 0
 	move()
 
 func move():
@@ -36,3 +46,7 @@ func move():
 func _physics_process(delta):
 	if moving:
 		moving = move()
+		if !moving and next_movement != null:
+			start_moving(next_movement)
+			next_movement = null
+			
