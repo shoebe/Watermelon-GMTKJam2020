@@ -46,7 +46,7 @@ margin_right = 330.0
 margin_bottom = 106.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "20"
+text = "Moves left: 20"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,8 +59,8 @@ __meta__ = {
 }
 
 [node name="Arrow" parent="ArrowContainer" instance=ExtResource( 3 )]
-margin_right = 0.0
-margin_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 96.0
 
 [node name="fader" type="Node2D" parent="."]
 
