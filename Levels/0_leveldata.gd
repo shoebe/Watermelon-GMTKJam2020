@@ -12,12 +12,11 @@ var levelData = [
 		"total_moves": 9
 	},
 	{ #level 3
-		"forced_moves": {},
-		"total_moves": 11
-	}
-]
-
-func get_level_data():
+		"forced_moves": {3: Vector2.UP, 10: Vector2.DOWN},
+		"total_moves": 13
+	}] 
+	
+func get_level_data(): 
 	if current_level <= levelData.size():
 		return levelData[current_level - 1]
 	else:
