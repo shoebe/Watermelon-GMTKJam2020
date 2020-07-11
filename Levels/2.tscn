@@ -178,7 +178,7 @@ format = 1
 tile_data = PoolIntArray( 4, 0, 0 )
 
 [node name="Bridge" type="TileMap" parent="Level2"]
-z_index = 2
+z_index = 1
 tile_set = SubResource( 6 )
 cell_size = Vector2( 24, 24 )
 format = 1
