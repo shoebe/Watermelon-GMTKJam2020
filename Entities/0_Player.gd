@@ -1,7 +1,5 @@
 extends Area2D
 
-signal reached_goal
-
 export var TILE_WIDTH = 24
 export var AMOUNT_OF_FRAMES_PER_MOVEMENT = 8.0
 
@@ -10,6 +8,8 @@ var moving = false
 var next_movement = null
 var old_pos = null
 var lerp_destination = Vector2.ZERO
+
+var reached_goal = false
 
 func _input(event):
 	if !moving:
@@ -72,8 +72,10 @@ func collision_detection():
 				moving = false
 				return true
 			64: # goal
-				get_node("../Goal/AnimationPlayer").play("eaten")
-				emit_signal("reached_goal")
+				if !reached_goal:
+					get_node("../Goal/AnimationPlayer").play("eaten")
+					get_node("/root/LevelLoader").finished_level()
+					reached_goal = true
 	
 func _physics_process(delta):
 	if moving:
