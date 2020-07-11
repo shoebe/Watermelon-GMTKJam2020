@@ -1,6 +1,6 @@
 extends Node
 
-var current_level = 4
+var current_level = 1
 
 var levelData = [
 	{ #level 1
