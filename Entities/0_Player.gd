@@ -35,7 +35,6 @@ func start_moving(direction:Vector2):
 	lerp_destination = position + direction*self.TILE_WIDTH
 	moving = true
 	current_lerp_val = 0
-	move()
 
 func move():
 	current_lerp_val = clamp(current_lerp_val+1/AMOUNT_OF_FRAMES_PER_MOVEMENT, 0, 1)
@@ -48,10 +47,15 @@ func move():
 	return true
 	
 	
+func collision_detection():
+	pass
+	
 func _physics_process(delta):
 	if moving:
 		moving = move()
 		if !moving and next_movement != null:
 			start_moving(next_movement)
 			next_movement = null
+		if moving:
+			pass
 			
