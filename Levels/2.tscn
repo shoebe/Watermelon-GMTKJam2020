@@ -175,6 +175,7 @@ __meta__ = {
 tile_set = SubResource( 5 )
 cell_size = Vector2( 24, 24 )
 format = 1
+tile_data = PoolIntArray( 4, 0, 0 )
 
 [node name="Bridge" type="TileMap" parent="Level2"]
 z_index = 2
@@ -189,7 +190,7 @@ collision_layer = 64
 script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="Level2" instance=ExtResource( 6 )]
-position = Vector2( 96, 0 )
+position = Vector2( 48, 48 )
 z_index = 1
 collision_mask = 511
 script = ExtResource( 1 )
