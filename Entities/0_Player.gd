@@ -82,6 +82,8 @@ func collision_detection():
 				reversal_move()
 				moving = false
 				return true
+			4: # water
+				$AnimatedSprite.play("death")
 			64: # goal
 				if !reached_goal:
 					get_node("../Goal/AnimationPlayer").play("eaten")
@@ -96,3 +98,8 @@ func _physics_process(delta):
 			start_moving(next_movement)
 			next_movement = null
 			
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "death":
+		get_node("/root/LevelLoader").restart_level()
