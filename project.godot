@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 LevelLoader="*res://Other scenes/LevelLoader.tscn"
-UI="*res://Other scenes/UI.tscn"
+UI="*res://Other scenes/UI/UI.tscn"
 LevelData="*res://Levels/0_leveldata.gd"
 
 [display]
