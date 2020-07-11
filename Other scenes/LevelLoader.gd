@@ -4,6 +4,7 @@ var current_level = 2
 var current_level_scene = null
 
 func _ready():
+	$Label.text = "Level %s"%current_level
 	load_next_level()
 
 func finished_level():
