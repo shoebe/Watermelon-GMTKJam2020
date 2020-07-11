@@ -35,8 +35,3 @@ func collision_detection():
 				reversal_move()
 				moving = false
 				return true
-
-func _physics_process(delta):
-	if moving:
-		if collision_detection(): return
-		moving = move()

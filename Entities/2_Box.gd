@@ -16,3 +16,7 @@ func _physics_process(delta):
 		change_layer_in_number_frames -= 1
 	else:
 		collision_layer = 8
+	if moving:
+		if collision_detection(): return
+		moving = move()
+
