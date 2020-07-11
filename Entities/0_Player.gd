@@ -66,10 +66,6 @@ func _physics_process(delta):
 		if !moving and next_movement != null:
 			start_moving(next_movement)
 			next_movement = null
-			
-func _on_AnimatedSprite_animation_finished():
-	if $AnimatedSprite.animation == "death":
-		press_r()
 
 func press_r():
 	add_child(load("res://Other scenes/PressR.tscn").instance())
@@ -82,6 +78,7 @@ func _on_body_entered(body):
 			return true
 		4: # water
 			$AnimatedSprite.play("death")
+			press_r()
 			move_count = move_limit
 		64: # goal
 			if !reached_goal:
