@@ -8,8 +8,8 @@ var levelData = [
 		"total_moves": 8
 	},
 	{ #level 2
-		"forced_moves": {},
-		"total_moves": 99
+		"forced_moves": {6: Vector2.RIGHT},
+		"total_moves": 8
 	}
 ]
 
