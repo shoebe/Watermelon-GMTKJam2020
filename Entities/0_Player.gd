@@ -57,6 +57,8 @@ func possible_forced_direction(moves_left, dir):
 func decrement_counter():
 	get_node("/root/UI").decrement_counter()
 	move_count += 1
+	if move_count >= move_limit:
+		add_child(load("res://Other scenes/PressR.tscn").instance())
 	
 func _physics_process(delta):
 	if moving:

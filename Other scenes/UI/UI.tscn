@@ -85,7 +85,15 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+rows = 1
+fill_priority = 0
+horizontal_fill_direction = 1
+vertical_fill_direction = 1
+horizontal_separation = 0.0
+vertical_separation = 0.0
+update_delay = 0.0
 update_time = 0.2
+update_ease = 1.0
 
 [node name="Arrow" parent="ArrowContainer" instance=ExtResource( 3 )]
 margin_right = 192.0

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var move_count
 var max_move_count
+const grid_item = preload("res://Other scenes/UI/Arrow.tscn")
 
 func loadData():
 	free_grid()
@@ -20,7 +21,6 @@ func create_arrows(forced_moves):
 	var node = $ArrowContainer
 	$ContainerTitle.visible = true
 	for key in forced_moves.keys():
-		var grid_item = load("res://Other scenes/UI/Arrow.tscn")
 		var child = grid_item.instance()
 		node.add_child(child)
 		child.set_dir(forced_moves[key])
