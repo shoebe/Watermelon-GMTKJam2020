@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-var current_level = 3
+var current_level = 5
+
 var current_level_scene = null
 
 func _ready():

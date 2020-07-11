@@ -18,6 +18,10 @@ var levelData = [
 	{ #level 4
 		"forced_moves": {12: Vector2.UP, 15: Vector2.DOWN, 17: Vector2.LEFT},
 		"total_moves": 18
+	},
+	{ #level 5
+		"forced_moves": {},
+		"total_moves": 19
 	}]
 	
 func get_level_data(): 
