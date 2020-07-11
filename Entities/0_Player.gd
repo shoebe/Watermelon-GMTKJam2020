@@ -12,12 +12,15 @@ var lerp_destination = Vector2.ZERO
 var reached_goal = false
 
 var move_count
+var move_limit
 var forced_moves
 
 func _ready():
 	var data = get_node("/root/LevelData").get_level_data()
-	move_count = data["total_moves"]
+	move_count = 0
+	move_limit = data["total_moves"]
 	forced_moves = data["forced_moves"]
+	$AnimatedSprite.play("default")
 
 func _input(event):
 	if !moving:
@@ -41,7 +44,7 @@ func _input(event):
 		
 		
 func start_moving(direction:Vector2):
-	if move_count <= 0 :
+	if move_count >= move_limit:
 		# add a thing to the UI which makes you restart
 		return
 	decrement_counter()
@@ -58,7 +61,7 @@ func possible_forced_direction(moves_left, direction):
 	
 func decrement_counter():
 	get_node("/root/UI").decrement_counter()
-	move_count -= 1
+	move_count += 1
 
 func move():
 	current_lerp_val = clamp(current_lerp_val+1/AMOUNT_OF_FRAMES_PER_MOVEMENT, 0, 1)
