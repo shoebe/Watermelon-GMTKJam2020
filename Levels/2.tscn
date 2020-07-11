@@ -1,10 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Entities/0_Player.gd" type="Script" id=1]
-[ext_resource path="res://Levels/1.gd" type="Script" id=2]
-[ext_resource path="res://Entities/1_GoalReset.gd" type="Script" id=3]
 [ext_resource path="res://Entities/1_Goal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Other scenes/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/0_Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Art/tilemaps/gmtkarrow2.png" type="Texture" id=7]
 [ext_resource path="res://Art/tilemaps/gmtkfloor1.png" type="Texture" id=8]
@@ -137,12 +133,9 @@ points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
-[node name="Level2" type="Node2D" parent="."]
-script = ExtResource( 2 )
-
-[node name="Floor" type="TileMap" parent="Level2"]
+[node name="Floor" type="TileMap" parent="."]
 position = Vector2( -72, -72 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 24, 24 )
@@ -152,7 +145,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Water" type="TileMap" parent="Level2"]
+[node name="Water" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 24, 24 )
 format = 1
@@ -161,7 +154,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Wall" type="TileMap" parent="Level2"]
+[node name="Wall" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
 cell_size = Vector2( 24, 24 )
 collision_layer = 2
@@ -171,45 +164,31 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Arrow" type="TileMap" parent="Level2"]
+[node name="Arrow" type="TileMap" parent="."]
 tile_set = SubResource( 5 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 4, 0, 0 )
 
-[node name="Bridge" type="TileMap" parent="Level2"]
+[node name="Bridge" type="TileMap" parent="."]
 z_index = 1
 tile_set = SubResource( 6 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( -131068, 0, 0, -131067, 0, 65536 )
 
-[node name="Goal" type="StaticBody2D" parent="Level2" instance=ExtResource( 4 )]
+[node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96, -96 )
-collision_layer = 64
-script = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="Level2" instance=ExtResource( 6 )]
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 48, 48 )
 z_index = 1
-collision_mask = 511
-script = ExtResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="Level2"]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 108.546, 0.943878 )
 current = true
 zoom = Vector2( 0.3, 0.3 )
 offset_v = -0.24
 __meta__ = {
 "_edit_lock_": true
-}
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Level2"]
-
-[node name="Control" type="Control" parent="Level2/CanvasLayer" instance=ExtResource( 5 )]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
 }
