@@ -15,7 +15,7 @@ func create_arrows(forced_moves):
 	var node = $column
 	var class_ = ResourceLoader.load("res://Other scenes/UI/Arrow&Label.tscn")
 	for key in forced_moves.keys():
-		var child = class_.instance
+		var child = class_.instance()
 
 
 func decrement_counter():
