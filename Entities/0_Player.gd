@@ -38,18 +38,19 @@ func _input(event):
 		
 		
 func start_moving(dir:Vector2):
-	if move_count >= move_limit:
+	if move_count >= move_limit and !non_input_move:
 		# add a thing to the UI which makes you restart
 		return
 	if non_input_move:
 		non_input_move = false
+		self.direction = dir
 	else:
 		decrement_counter()
-	self.direction = possible_forced_direction(move_count, dir)
+		self.direction = possible_forced_direction(move_count, dir)
 	.start_moving(self.direction)
 	
 func possible_forced_direction(moves_left, dir):
-	if moves_left in forced_moves.keys():
+	if (moves_left in forced_moves.keys()):
 		return forced_moves[moves_left]
 	return dir
 	
