@@ -1,5 +1,7 @@
 extends Area2D
 
+signal reached_goal
+
 export var TILE_WIDTH = 24
 export var AMOUNT_OF_FRAMES_PER_MOVEMENT = 8.0
 
@@ -35,6 +37,10 @@ func start_moving(direction:Vector2):
 	lerp_destination = position + direction*self.TILE_WIDTH
 	moving = true
 	current_lerp_val = 0
+	
+func decrement_counter():
+	get_parent().moves_left_counter -= 1
+	return get_parent().moves_left_counter
 
 func move():
 	current_lerp_val = clamp(current_lerp_val+1/AMOUNT_OF_FRAMES_PER_MOVEMENT, 0, 1)
@@ -57,6 +63,10 @@ func collision_detection():
 			reversal_move()
 			moving = false
 			return true
+		if body.collision_layer == 7: # goal
+			get_parent().get_node("Goal/AnimationPlayer").play("eaten")
+			emit_signal("reached_goal")
+			
 	
 func _physics_process(delta):
 	if moving:
