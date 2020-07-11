@@ -1,8 +1,6 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
-
 var next_movement = null
-
 var reached_goal = false
 
 var move_count
@@ -27,7 +25,7 @@ func _input(event):
 			start_moving(Vector2.UP)
 		if event.is_action_pressed("ui_down"):
 			start_moving(Vector2.DOWN)
-	else:
+	elif next_movement == null:
 		if event.is_action_pressed("ui_right"):
 			next_movement = Vector2.RIGHT
 		if event.is_action_pressed("ui_left"):
@@ -54,34 +52,9 @@ func possible_forced_direction(moves_left, dir):
 func decrement_counter():
 	get_node("/root/UI").decrement_counter()
 	move_count += 1
-
-func collision_detection():
-	for body in get_overlapping_bodies():
-		match body.collision_layer:
-			2: # wall
-				reversal_move()
-				moving = false
-				return true
-			4: # water
-				$AnimatedSprite.play("death")
-				move_count = move_limit
-			64: # goal
-				if !reached_goal:
-					get_node("../Goal/AnimationPlayer").play("eaten")
-					get_node("/root/LevelLoader").finished_level()
-					reached_goal = true
-	for area in get_overlapping_areas():
-		match area.collision_layer:
-			2: # "wall" (box became layer 2 probs)
-				reversal_move()
-				moving = false
-				return true
-			8: #box
-				area.start_moving(self.direction)
 	
 func _physics_process(delta):
 	if moving:
-		if collision_detection(): return
 		moving = move()
 		if !moving and next_movement != null:
 			start_moving(next_movement)
@@ -90,3 +63,29 @@ func _physics_process(delta):
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "death":
 		get_node("/root/LevelLoader").restart_level()
+
+func _on_body_entered(body):
+	match body.collision_layer:
+		2: # wall
+			reversal_move()
+			moving = false
+			return true
+		4: # water
+			$AnimatedSprite.play("death")
+			move_count = move_limit
+		64: # goal
+			if !reached_goal:
+				get_node("../Goal/AnimationPlayer").play("eaten")
+				get_node("/root/LevelLoader").finished_level()
+				reached_goal = true
+
+func _on_area_entered(area):
+	match area.collision_layer:
+		2: # "wall" (box became layer 2 probs)
+			reversal_move()
+			moving = false
+			return true
+		8: #box
+			area.start_moving(self.direction)
+		16: # arrows
+			next_movement = area.get_direction()
