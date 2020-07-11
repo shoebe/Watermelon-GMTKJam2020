@@ -87,6 +87,7 @@ func collision_detection():
 				return true
 			4: # water
 				$AnimatedSprite.play("death")
+				move_count = move_limit
 			64: # goal
 				if !reached_goal:
 					get_node("../Goal/AnimationPlayer").play("eaten")
