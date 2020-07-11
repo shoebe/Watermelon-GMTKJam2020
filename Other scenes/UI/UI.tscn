@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Poppins-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Other scenes/UI/UI.gd" type="Script" id=2]
-[ext_resource path="res://Other scenes/UI/Arrow&Label.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
@@ -41,8 +40,8 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 144.0
-margin_right = 212.0
+margin_left = 192.0
+margin_right = 282.0
 margin_bottom = 106.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -51,14 +50,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="column" type="Control" parent="."]
+[node name="grid" type="ItemList" parent="."]
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Arrow&Label" parent="column" instance=ExtResource( 3 )]
-
-[node name="Arrow&Label2" parent="column" instance=ExtResource( 3 )]
 
 [node name="fader" type="Node2D" parent="."]
 

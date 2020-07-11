@@ -12,10 +12,12 @@ func loadData():
 	decrement_counter()
 
 func create_arrows(forced_moves):
-	var node = $column
-	var class_ = ResourceLoader.load("res://Other scenes/UI/Arrow&Label.tscn")
+	var node = $grid
+	var class_ = ResourceLoader.load("res://Other scenes/UI/Arrow.tscn")
 	for key in forced_moves.keys():
 		var child = class_.instance()
+		node.add_child(child)
+		child.set_dir(forced_moves[key])
 
 
 func decrement_counter():
