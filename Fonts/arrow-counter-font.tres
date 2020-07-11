@@ -3,5 +3,6 @@
 [ext_resource path="res://Fonts/Poppins-Medium.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 45
+size = 55
+use_filter = true
 font_data = ExtResource( 1 )

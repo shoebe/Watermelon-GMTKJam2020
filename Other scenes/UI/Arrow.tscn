@@ -1,14 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Other scenes/UI/Arrow.gd" type="Script" id=1]
-[ext_resource path="res://Other scenes/UI/Arrow.tres" type="Texture" id=2]
+[ext_resource path="res://Other scenes/UI/gmtkGUI.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/arrow-counter-font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Other scenes/UI/rect.png" type="Texture" id=4]
 
-[node name="Arrow" type="TextureRect"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 2 )
-expand = true
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 24, 24 )
+
+[node name="ColorRect" type="TextureRect"]
+margin_right = -192.0
+margin_bottom = -96.12
+texture = ExtResource( 4 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="TextureRect" parent="."]
+margin_right = 24.0
+margin_bottom = 24.0
+rect_scale = Vector2( 4, 4 )
+texture = SubResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 96.0
+margin_right = 192.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "20"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
