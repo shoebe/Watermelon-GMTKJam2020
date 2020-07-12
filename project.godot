@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Gmtk-jam"
 run/main_scene="res://Other scenes/LevelLoader.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -133,7 +134,6 @@ previous_level={
 2d_physics/layer_5="Arrows"
 2d_physics/layer_6="Safe"
 2d_physics/layer_7="Goal"
-2d_physics/layer_8="Player"
 
 [rendering]
 
