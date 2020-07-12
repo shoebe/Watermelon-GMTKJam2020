@@ -8,7 +8,6 @@ var non_input_move = false
 var move_count
 var move_limit
 var forced_moves
-var direction
 
 func _ready():
 	var data = get_node("/root/LevelData").get_level_data()
@@ -40,15 +39,13 @@ func _input(event):
 		
 func start_moving(dir:Vector2):
 	if move_count >= move_limit and !non_input_move:
-		# add a thing to the UI which makes you restart
 		return
 	if non_input_move:
 		non_input_move = false
-		self.direction = dir
 	else:
 		decrement_counter()
-		self.direction = possible_forced_direction(move_count, dir)
-	.start_moving(self.direction)
+		dir = possible_forced_direction(move_count, dir)
+	.start_moving(dir)
 	
 func possible_forced_direction(moves_left, dir):
 	if (moves_left in forced_moves.keys()):
@@ -91,7 +88,7 @@ func _on_body_entered(body):
 func _on_area_entered(area):
 	match area.collision_layer:
 		8: #box
-			area.start_moving(self.direction)
+			area.push_block(self.direction, self)
 		16: # arrows
 			next_movement = area.get_direction()
 			non_input_move = true
