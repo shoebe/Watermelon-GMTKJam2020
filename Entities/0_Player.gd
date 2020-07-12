@@ -64,9 +64,11 @@ func decrement_counter():
 func _physics_process(delta):
 	if moving:
 		moving = move()
-		if !moving and next_movement != null:
-			start_moving(next_movement)
-			next_movement = null
+		if !moving:
+			$AnimatedSprite.play("walk")
+			if next_movement != null:
+				start_moving(next_movement)
+				next_movement = null
 
 func press_r():
 	add_child(load("res://Other scenes/PressR.tscn").instance())
@@ -93,3 +95,8 @@ func _on_area_entered(area):
 		16: # arrows
 			next_movement = area.get_direction()
 			non_input_move = true
+
+
+func _on_AnimatedSprite_animation_finished(anim_name):
+	if anim_name == "walk":
+		$AnimatedSprite.play("default")
