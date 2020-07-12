@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var current_level = 5
+var current_level = 6
 
 var current_level_scene = null
 
