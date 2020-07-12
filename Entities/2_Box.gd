@@ -1,5 +1,6 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
+
 func collision_detection():
 	for body in get_overlapping_bodies():
 		match body.collision_layer:
