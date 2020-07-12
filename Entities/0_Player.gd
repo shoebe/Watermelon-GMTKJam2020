@@ -1,5 +1,7 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
+export var AMOUNT_OF_FRAMES_PER_MOVEMENT = 8.0
+
 var next_movement = null
 var reached_goal = false
 
@@ -58,7 +60,7 @@ func decrement_counter():
 
 func _physics_process(delta):
 	if moving:
-		moving = move()
+		moving = move(AMOUNT_OF_FRAMES_PER_MOVEMENT)
 		if !moving:
 			if $AnimatedSprite.current_animation != "death":
 				$AnimatedSprite.play("walk")
