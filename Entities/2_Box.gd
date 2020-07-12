@@ -17,6 +17,7 @@ func _ready():
 
 func push_block(dir, caller):
 	if moving:
+		return
 		if caller.get_type() == "box":
 			if caller.caller == null or caller.caller.get_type() == "box":
 				return
