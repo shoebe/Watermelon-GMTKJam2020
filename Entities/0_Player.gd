@@ -95,8 +95,3 @@ func _on_area_entered(area):
 		16: # arrows
 			next_movement = area.get_direction()
 			non_input_move = true
-
-
-func _on_AnimatedSprite_animation_finished(anim_name):
-	if anim_name == "walk":
-		$AnimatedSprite.play("default")
