@@ -1,3 +1,230 @@
-[gd_scene format=2]
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Entities/0_Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/1_Goal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/0_Player.gd" type="Script" id=3]
+[ext_resource path="res://Entities/1_GoalReset.gd" type="Script" id=4]
+[ext_resource path="res://Art/tilemaps/gmtkfloor1.png" type="Texture" id=5]
+[ext_resource path="res://Art/tilemaps/gmtkbridge1.png" type="Texture" id=6]
+[ext_resource path="res://Art/tilemaps/gmtkwater1.png" type="Texture" id=7]
+[ext_resource path="res://Art/tilemaps/gmtkwall1.png" type="Texture" id=8]
+[ext_resource path="res://Entities/2_Box.tscn" type="PackedScene" id=9]
+
+[sub_resource type="TileSet" id=1]
+0/name = "gmtkfloor1.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 24 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 24, 24 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "gmtkwater1.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 48 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 24, 24 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
+
+[sub_resource type="TileSet" id=8]
+0/name = "gmtkwall1.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 24, 24 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 24, 24 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 7 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=9]
+0/name = "gmtkbridge1.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 48 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 24, 24 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [ Vector3( 0, 0, 1 ), Vector3( 1, 0, -1 ) ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Floor" type="TileMap" parent="."]
+position = Vector2( -72, -72 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 131077, 0, 0, 262143, 0, 0, 196609, -1610612736, 0, 196610, 1610612736, 0, 196611, 0, 0, 196613, -1073741824, 0, 196614, 0, 0, 327678, 0, 0, 327679, 0, 0, 262145, 0, 0, 393214, 1610612736, 0, 327681, 0, 0, 327683, 0, 0, 327685, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 536870912, 0, 393217, 1610612736, 0, 393218, 1610612736, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 24, 24 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+tile_data = PoolIntArray( -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -524280, 0, 0, -524279, 0, 0, -524278, 0, 0, -524277, 0, 0, -524276, 0, 0, -393229, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458741, 0, 0, -458740, 0, 0, -327693, 0, 0, -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 536870912, 0, -327678, 0, 65536, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -262142, 0, 65536, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -131085, 0, 0, -131084, 0, 0, -131083, 0, 0, -131082, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -196606, 0, 65536, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -196596, 0, 0, -65549, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65537, 0, 65536, -131070, 0, 65536, -131069, 0, 0, -131067, 0, 65536, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -13, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -65536, 536870912, 1, -65533, 0, 65536, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65530, 0, 65536, 65531, 0, 0, 1, 0, 65536, 4, 0, 65536, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131069, 0, 65536, 131071, 0, 65536, 65537, 536870912, 1, 65539, 536870912, 1, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196604, 0, 65536, 196605, 0, 0, 196607, 0, 65536, 131075, 0, 65536, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262138, 0, 65536, 196608, 0, 65536, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196613, 0, 65536, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 327670, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 393203, 0, 0, 393204, 0, 0, 393205, 0, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 458739, 0, 0, 458740, 0, 0, 458741, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 524275, 0, 0, 524276, 0, 0, 524277, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 589811, 0, 0, 589812, 0, 0, 589813, 0, 0, 589814, 0, 0, 589815, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FakeWater" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 24, 24 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+tile_data = PoolIntArray( -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -262148, 536870912, 0, -327678, 0, 65536, -196613, 0, 0, -196612, 0, 0, -262142, 0, 65536, -262141, 0, 0, -262140, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -196606, 0, 65536, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65537, 0, 65536, -131070, 0, 65536, -131069, 0, 0, -131067, 0, 65536, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 1, -65536, 536870912, 1, -65533, 0, 65536, -65532, 0, 0, -65531, 0, 0, 65530, 0, 65536, 65531, 0, 0, 65533, 0, 0, 1, 0, 65536, 4, 0, 65536, 5, 0, 0, 131065, 0, 0, 131066, 0, 0, 131069, 0, 65536, 131071, 0, 65536, 65536, 0, 1, 65537, 536870912, 1, 65538, 0, 1, 65539, 536870912, 1, 65540, 0, 0, 65541, 0, 0, 196601, 0, 0, 196602, 0, 0, 196604, 0, 65536, 196605, 0, 0, 196607, 0, 65536, 131073, 0, 0, 131075, 0, 65536, 131076, 0, 0, 131077, 0, 0, 262138, 0, 65536, 196608, 0, 65536, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196613, 0, 65536, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall" type="TileMap" parent="."]
+tile_set = SubResource( 8 )
+cell_size = Vector2( 24, 24 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -196611, 0, 0, -262143, 0, 0, -131075, 0, 0, -196607, 0, 0, -65539, 0, 0, -65538, 0, 0, -131072, 0, 0, -131071, 0, 0, -131068, -1073741824, 0, -65535, 1610612736, 0, 65529, -1073741824, 0, 262137, -1073741824, 0, 196612, -1073741824, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bridge" type="TileMap" parent="."]
+z_as_relative = false
+tile_set = SubResource( 9 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( -1, 1610612736, 0, 65533, -1610612736, 0, 65536, 0, 0, 65538, 1610612736, 0, 131073, -1073741824, 0 )
+
+[node name="Player" type="Area2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, 72 )
+z_index = 1
+collision_layer = 128
+collision_mask = 511
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 108.546, 0.943878 )
+offset = Vector2( -108, 30 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+offset_v = -0.24
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Arrows" type="Node2D" parent="."]
+
+[node name="Goal" type="StaticBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, -96 )
+collision_layer = 64
+collision_mask = 128
+script = ExtResource( 4 )
+
+[node name="Box" parent="." instance=ExtResource( 9 )]
+position = Vector2( -24, -72 )
+[connection signal="moved" from="Player" to="Box" method="_on_Player_moved"]
