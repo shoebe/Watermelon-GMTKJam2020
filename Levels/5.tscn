@@ -93,7 +93,7 @@ points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="TileSet" id=7]
+[sub_resource type="TileSet" id=9]
 0/name = "gmtkarrow2.png 0"
 0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
@@ -116,10 +116,10 @@ points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
 
-[sub_resource type="TileSet" id=9]
+[sub_resource type="TileSet" id=8]
 0/name = "gmtkwall1.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -137,14 +137,14 @@ points = PoolVector2Array( 24, 24, 0, 24, 0, 0, 24, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 8 )
+0/shape = SubResource( 7 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -196,12 +196,12 @@ __meta__ = {
 }
 
 [node name="Arrow" type="TileMap" parent="."]
-tile_set = SubResource( 7 )
+tile_set = SubResource( 9 )
 cell_size = Vector2( 24, 24 )
 format = 1
 
 [node name="Wall" type="TileMap" parent="."]
-tile_set = SubResource( 9 )
+tile_set = SubResource( 8 )
 cell_size = Vector2( 24, 24 )
 collision_layer = 2
 format = 1

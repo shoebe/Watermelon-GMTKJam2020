@@ -173,8 +173,6 @@ anims/walk = SubResource( 4 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 21 )
-animation = "death"
-frame = 14
 centered = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
