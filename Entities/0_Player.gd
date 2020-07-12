@@ -64,7 +64,7 @@ func decrement_counter():
 func _physics_process(delta):
 	if moving:
 		moving = move()
-		if !moving:
+		if !moving and $AnimatedSprite.current_animation != "death":
 			$AnimatedSprite.play("walk")
 			if next_movement != null:
 				start_moving(next_movement)
