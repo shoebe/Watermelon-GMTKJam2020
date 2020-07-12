@@ -131,7 +131,6 @@ __meta__ = {
 }
 
 [node name="CanvasModulate" type="CanvasModulate" parent="fader"]
-visible = false
 position = Vector2( 2, 0 )
 color = Color( 1, 1, 1, 0 )
 

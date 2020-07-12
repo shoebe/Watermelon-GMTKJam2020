@@ -21,7 +21,7 @@ var levelData = [
 	},
 	{ #level 5
 		"forced_moves": {6: Vector2.RIGHT, 10: Vector2.RIGHT, 12: Vector2.RIGHT, 16: Vector2.UP, 17: Vector2.UP, 18: Vector2.RIGHT, 19: Vector2.RIGHT},
-		"total_moves": 23
+		"total_moves": 21
 	},
 	{ #level 6
 		"forced_moves": {7: Vector2.LEFT, 8: Vector2.LEFT, 10: Vector2.UP, 18: Vector2.RIGHT, 19: Vector2.DOWN, 31: Vector2.RIGHT, 47: Vector2.DOWN, 49: Vector2.LEFT},

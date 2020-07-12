@@ -195,6 +195,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="FakeWater" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 24, 24 )
+collision_mask = 4
+format = 1
+tile_data = PoolIntArray( -196606, 0, 0, -196602, 0, 0, -131071, 0, 0, -131067, 0, 65536, -2, 0, 65536, -65532, 0, 65536, 65535, 0, 65536, 3, 0, 65536, 131068, 0, 0, 131071, 0, 65536, 65538, 0, 65536, 196605, 0, 0, 196607, 0, 65536, 131073, 0, 65536, 262142, 0, 0, 196608, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Arrow" type="TileMap" parent="."]
 tile_set = SubResource( 7 )
 cell_size = Vector2( 24, 24 )
