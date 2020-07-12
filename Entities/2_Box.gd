@@ -1,5 +1,6 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
+export var AMOUNT_OF_FRAMES_PER_MOVEMENT = 7.0
 var caller = null
 var next_movement = null
 
@@ -28,7 +29,7 @@ func reversal_move():
 func _physics_process(delta):
 	if moving:
 		if collision_detection(): return
-		moving = move()
+		moving = move(AMOUNT_OF_FRAMES_PER_MOVEMENT)
 		if !moving and next_movement != null:
 			start_moving(next_movement)
 			next_movement = null
