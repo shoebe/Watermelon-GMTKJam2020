@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Gmtk-jam"
 run/main_scene="res://Other scenes/LevelLoader.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 

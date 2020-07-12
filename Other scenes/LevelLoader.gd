@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var current_level = 6
+var current_level = 5
 var current_level_scene = null
 const game_finished_scene = preload("res://Other scenes/CompletedGame.tscn")
 var game_finished_loaded = false
