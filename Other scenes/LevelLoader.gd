@@ -3,6 +3,7 @@ extends CanvasLayer
 var current_level = 6
 var current_level_scene = null
 const game_finished_scene = preload("res://Other scenes/CompletedGame.tscn")
+var game_finished_loaded = false
 
 func _ready():
 	$Label.text = "Level %s"%current_level
@@ -11,7 +12,15 @@ func _ready():
 func finished_level():
 	current_level += 1
 	if current_level >= 7:
-		add_child(game_finished_scene.instance())
+		if game_finished_loaded:
+			return
+		var thing = game_finished_scene.instance()
+		add_child(thing)
+		game_finished_loaded = true
+		yield(thing, "button_pressed")
+		thing.call_deferred("free")
+		current_level = 0
+		finished_level()
 		return
 	$Label.text = "Level %s"%current_level
 	$AnimationPlayer.play("fade to white")
@@ -33,3 +42,8 @@ func load_next_level():
 func _input(event):
 	if event.is_action_pressed("restart"):
 		restart_level()
+	if event.is_action_pressed("next_level"):
+		finished_level()
+	if event.is_action_pressed("previous_level"):
+		current_level = clamp(current_level - 2, 0, 99)
+		finished_level()
