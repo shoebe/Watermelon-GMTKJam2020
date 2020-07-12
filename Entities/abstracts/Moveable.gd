@@ -6,11 +6,11 @@ var current_lerp_val = 0
 var moving = false
 var old_pos = null
 onready var lerp_destination = position
-var direction
+var direction = Vector2.ZERO
 
 func start_moving(direction:Vector2):
 	self.direction = direction
-	old_pos = position
+	old_pos = lerp_destination
 	lerp_destination += direction*self.TILE_WIDTH
 	moving = true
 	current_lerp_val = 0

@@ -1,5 +1,7 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
+signal moved
+
 export var AMOUNT_OF_FRAMES_PER_MOVEMENT = 8.0
 
 var next_movement = null
@@ -56,6 +58,7 @@ func possible_forced_direction(moves_left, dir):
 	
 func decrement_counter():
 	get_node("/root/UI").decrement_counter()
+	emit_signal("moved")
 	move_count += 1
 
 func _physics_process(delta):
@@ -72,6 +75,9 @@ func _physics_process(delta):
 
 func press_r():
 	add_child(load("res://Other scenes/PressR.tscn").instance())
+
+func get_type():
+	return "player"
 
 func _on_body_entered(body):
 	match body.collision_layer:
