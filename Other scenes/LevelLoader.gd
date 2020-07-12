@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var current_level = 5
+var last_level = 6
 var current_level_scene = null
 const game_finished_scene = preload("res://Other scenes/CompletedGame.tscn")
 var game_finished_loaded = false
@@ -11,7 +12,7 @@ func _ready():
 
 func finished_level():
 	current_level += 1
-	if current_level >= 6:
+	if current_level > last_level:
 		if game_finished_loaded:
 			return
 		var thing = game_finished_scene.instance()
