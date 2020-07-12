@@ -1,5 +1,10 @@
 extends "res://Entities/abstracts/Moveable.gd"
 
+var caller = null
+
+func push_block(dir, caller):
+	.start_moving(dir)
+	self.caller = caller
 
 func collision_detection():
 	for body in get_overlapping_bodies():
