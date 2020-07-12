@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 var current_level = 6
-
 var current_level_scene = null
+const game_finished_scene = preload("res://Other scenes/CompletedGame.tscn")
 
 func _ready():
 	$Label.text = "Level %s"%current_level
@@ -10,6 +10,9 @@ func _ready():
 
 func finished_level():
 	current_level += 1
+	if current_level >= 7:
+		add_child(game_finished_scene.instance())
+		return
 	$Label.text = "Level %s"%current_level
 	$AnimationPlayer.play("fade to white")
 	get_node("/root/UI/fader/AnimationPlayer").play("fade to clear")

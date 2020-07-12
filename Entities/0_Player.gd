@@ -55,17 +55,18 @@ func possible_forced_direction(moves_left, dir):
 func decrement_counter():
 	get_node("/root/UI").decrement_counter()
 	move_count += 1
-	if move_count >= move_limit:
-		press_r()
 
 func _physics_process(delta):
 	if moving:
 		moving = move()
-		if !moving and $AnimatedSprite.current_animation != "death":
-			$AnimatedSprite.play("walk")
+		if !moving:
+			if $AnimatedSprite.current_animation != "death":
+				$AnimatedSprite.play("walk")
 			if next_movement != null:
 				start_moving(next_movement)
 				next_movement = null
+			if move_count >= move_limit and !reached_goal:
+				press_r()
 
 func press_r():
 	add_child(load("res://Other scenes/PressR.tscn").instance())
