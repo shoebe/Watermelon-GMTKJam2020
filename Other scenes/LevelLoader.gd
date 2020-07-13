@@ -20,6 +20,7 @@ func finished_level():
 		game_finished_loaded = true
 		yield(thing, "button_pressed")
 		thing.call_deferred("free")
+		game_finished_loaded = false
 		current_level = 0
 		finished_level()
 		return
