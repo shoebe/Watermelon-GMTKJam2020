@@ -1,2 +1,2 @@
-# AnimatedGridContainerPlugin
-A plugin for Godot that adds a more complex grid container node that can be animated.
+# Watermelon - a GMTK Game Jam 2020 entry
+https://tishoe.itch.io/watermelon
